@@ -1,6 +1,6 @@
 const path = require('path');
 const config = {
-  entry: './src/other/index.js',
+  entry: './src/index.js',
   output: {
     filename: 'index.js',
     path: __dirname + '/',

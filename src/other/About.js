@@ -10,7 +10,7 @@ class About extends Component {
     }
     handleAdd(){
         this.props.dispatch({
-            type: 'INCREMENT_ASYNC',
+            type: 'test/incrementAsync',
             payload:{
 
             },
@@ -33,9 +33,9 @@ class About extends Component {
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps({ test: { num } }){
     return {
-        num: state.num
+        num
     };
 }
 
