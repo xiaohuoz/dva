@@ -1,7 +1,10 @@
+// import preStartDevServer from './proxy.config';
+// const apiMocker = require('webpack-api-mocker');
+
 const path = require('path');
 const config = {
   entry: {
-    index: './src/index.js'
+    index: './src/other/index.js'
   },
   output: {
     filename: 'index.js',
@@ -12,6 +15,18 @@ const config = {
     contentBase: path.join(__dirname, "publish"),
     compress: true,
     index: 'index.html',
+    before(app){
+      // apiMocker(app, path.resolve('./proxy.config.js'), {
+      //   // proxy: {
+      //   //   '/repos/*': 'https://api.github.com/',
+      //   // },
+      //   // changeHost: true,
+      // })
+        app.get('/some/path', function(req, res) {
+        
+        res.json({ custom: 'response' });
+        });
+    }
   },
   module:{
     rules: [

@@ -18,7 +18,7 @@ class About extends Component {
     }
     handleSub(){
         this.props.dispatch({
-            type: 'DECREMENT',
+            type: 'test/decrementAsync',
             payload:{
 
             },

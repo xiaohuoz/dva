@@ -12,9 +12,9 @@ class About extends Component {
         this.handleSub = this.handleSub.bind(this);
     }
     handleAdd(){
-        this.setState({
-            leftmenuVisible: true,
-        });
+        // this.setState({
+        //     leftmenuVisible: true,
+        // });
         this.props.dispatch({
             type: 'INCREMENT',
             payload:{
