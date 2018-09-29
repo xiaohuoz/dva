@@ -1,4 +1,11 @@
 module.exports = {
+  _proxy: {
+    proxy: {
+      '/repos/*': 'https://api.github.com/',
+      '/:owner/:repo/raw/:ref/*': 'http://127.0.0.1:2018'
+    },
+    changeHost: true,
+  },
   // Forward 到另一个服务器
   'GET https://assets.daily/*': 'https://assets.online/',
  

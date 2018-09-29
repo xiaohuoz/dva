@@ -1,7 +1,8 @@
 // import preStartDevServer from './proxy.config';
-// const apiMocker = require('webpack-api-mocker');
-
 const path = require('path');
+const apiMocker = require('webpack-api-mocker');
+const mocker = path.resolve(__dirname, './mock/index.js');
+
 const config = {
   entry: {
     index: './src/other/index.js'
@@ -16,16 +17,12 @@ const config = {
     compress: true,
     index: 'index.html',
     before(app){
-      // apiMocker(app, path.resolve('./proxy.config.js'), {
-      //   // proxy: {
-      //   //   '/repos/*': 'https://api.github.com/',
-      //   // },
-      //   // changeHost: true,
-      // })
-        app.get('/some/path', function(req, res) {
-        
-        res.json({ custom: 'response' });
-        });
+      apiMocker(app, mocker, {
+        proxy: {
+            '/repos/*': 'https://www.baidu.com'
+        },
+        changeHost: true
+      });
     }
   },
   module:{
